@@ -1,0 +1,78 @@
+from django.shortcuts import render,redirect
+from .models import *
+from django.http import HttpResponse
+from .forms import *
+
+# Create your views here.
+
+def home(request):
+    return HttpResponse('Home')
+
+def dashboard(request):
+    # companies = Company.objects.all()
+    orders = Order.objects.all()
+    customers = Customer.objects.all()
+    total_customers = customers.count()
+    total_orders = orders.count()
+    delivered = orders.filter(status='Delivered').count()
+    pending = orders.filter(status='Pending').count()
+    return render(request,'pharmacy/dashboard.html',{'orders':orders,'customers':customers,'total_customers':total_customers,'total_orders':total_orders,'delivered':delivered,'pending':pending})
+
+def medicines(request):
+    medicines = Medicine.objects.all()
+    return render(request,'pharmacy/medicines.html',{'medicines':medicines})
+
+
+# primary key = pk
+def customers(request,pk):
+    customer = Customer.objects.get(id=pk)
+    # quering customers child objects from order models field
+    orders = customer.order_set.all()
+    order_count = orders.count()
+    return render(request,'pharmacy/customers.html',{'customer':customer,'orders':orders,'order_count':order_count})
+
+
+
+def createOrder(request):
+    form = OrderForm()
+    if request.method =="POST":
+        # print('printing POST: ',request.POST)
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/dashboard/')
+
+    content = {'form':form}
+    return render(request, 'pharmacy/order_form.html',content)
+
+
+def createMedicine(request):
+    form = MedicineForm()
+    if request.method == "POST":
+        form = MedicineForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/medicines/')
+    content = {'form':form}
+    return render(request,'pharmacy/medicine_form.html',content)
+
+
+def updateOrder(request,pk):
+    order = Order.objects.get(id=pk)
+    form = OrderForm(instance=order)
+    content = {'form':form}
+    if request.method =="POST":
+        # print('printing POST: ',request.POST)
+        form = OrderForm(request.POST,instance=order)
+        if form.is_valid():
+            form.save()
+            return redirect('/dashboard/')
+    return render(request,'pharmacy/order_form.html',content)
+
+
+
+def deleteOrder(request,pk):
+    order = Order.objects.get(id=pk)
+    content={'item':order}
+
+    return render(request,'pharmacy/delete.html',content)

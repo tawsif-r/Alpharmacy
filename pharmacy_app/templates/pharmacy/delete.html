@@ -1,0 +1,13 @@
+{% extends 'pharmacy/main.html' %}
+{% load static %}
+{% block content %}
+
+<p>Are you sure you want to delete "{{item.medicine}}"?</p>
+
+<form method="POST">
+    <a href="{% url 'dashboard' %}">Cancel</a>
+    
+    <input type="submit" name="Confirm" value="Submit">
+</form>
+
+{% endblock %}

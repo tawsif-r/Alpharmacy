@@ -1,0 +1,70 @@
+{% extends 'pharmacy/main.html' %}
+
+{% block content %}
+
+{% include 'pharmacy/status.html' %}
+
+
+<div class="row">
+  <div class="col-md-5">
+    <h5>CUSTOMERS</h5>
+    <hr>
+    <div class="card car-body">
+      <a href="" class="btn btn-primary btn-sm btn-block">CUSTOMERS
+      </a>
+      <table class="table table-sm">
+        <tr>
+          <th>Customer</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+        </tr>
+        {% for customer in customers %}
+        <tr>
+          <!-- this pushes the customer id into the url e.g 1 or 2 making dynamic urls -->
+          <td><a class = "btn btn-sm btn-info" href="{% url 'customers' customer.id %}">View</a></td>
+
+          <td>{{customer.customer_name}}</td>
+          <td>{{customer.customer_mail}}</td>
+          <td>{{customer.customer_phone}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  <div class="col-md-7">
+      <h5>Orders</h5>
+      <hr>
+      <div class="card card-body">
+        <a href="{% url 'create_order' %}" class="btn btn-primary btn-sm btn-block">Create Order</a>
+          <table class="table table-sm">
+            <tr>
+              <th>Customer</th>
+              <th>Medicine</th>
+              <th>Date Ordered</th>
+              <th>Status</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+            {% for order in orders %}
+            <tr>
+              <td>{{order.customer}}</td>
+              <td>{{order.medicine}}</td>
+              <td>{{order.date_created}}</td>
+              <td>{{order.status}}</td>
+              
+              <td><a class = "btn btn-sm btn-info" href="{% url 'update_order' order.id %}">Update</a></td>
+              <td><a class = "btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+          </table>
+        
+      </div>
+    </div>
+</div>
+
+
+ 
+
+
+
+{% endblock content %}
