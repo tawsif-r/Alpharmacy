@@ -2,12 +2,20 @@
 {% load static %}
 {% block content %}
 
-<p>Are you sure you want to delete "{{item.medicine}}"?</p>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+            <p>Are you sure you want to delete "{{item.medicine}}"?</p>
 
-<form method="POST">
-    <a href="{% url 'dashboard' %}">Cancel</a>
+            <form method="POST">
+                {% csrf_token%}
+                <a class="btn btn-sm btn-info" href="{% url 'dashboard' %}">Cancel</a>
     
-    <input type="submit" name="Confirm" value="Submit">
-</form>
+                <input class="btn btn-sm btn-danger" type="submit" name="Confirm" value="Submit">
+            </form>
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}

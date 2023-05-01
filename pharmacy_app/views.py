@@ -74,5 +74,9 @@ def updateOrder(request,pk):
 def deleteOrder(request,pk):
     order = Order.objects.get(id=pk)
     content={'item':order}
+    if request.method =="POST":
+        # print('printing POST: ',request.POST)
+        order.delete()
+        return redirect('/dashboard/')
 
     return render(request,'pharmacy/delete.html',content)
