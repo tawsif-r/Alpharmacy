@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pharmacy_app',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
