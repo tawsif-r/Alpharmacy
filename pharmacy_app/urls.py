@@ -6,6 +6,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path('',views.register,name="register"),
+    path('login/',views.loginPage,name="login"),
+    path('logout/',views.logoutUser,name="logout"),
     path('dashboard/',views.dashboard,name="dashboard"),# name="dashboard" allows us to use the tag in url in href
     path('medicines/',views.medicines,name='medicines'),
     path('customers/<str:pk>/',views.customers,name="customers"),
