@@ -2,7 +2,7 @@
 
 ### Created by: Md. Tawsifur Rahman
 
-This repository hosts an Online Pharmacy Management System, equipped with various features to facilitate seamless pharmacy operations.
+Online Pharmacy Management System, equipped with various features to facilitate seamless pharmacy operations.
 
 ## Project Features
 
