@@ -1,0 +1,32 @@
+{% extends 'pharmacy/main.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+    <div class="col-md-8">
+      <h5 class="header">Update Order</h5>
+      <hr>
+      <div class="card card-body" id="card">
+        <form action="" method="POST">
+            {% csrf_token %}
+                {{form}}
+                <hr>
+                
+            <input type="submit" name="submit" value="Submit">
+        </form>
+      </div>
+    </div>
+
+
+
+    
+
+
+
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,52 @@
+{% extends 'pharmacy/main.html' %}
+
+{% block content %}
+
+{% include 'pharmacy/status.html' %}
+
+
+<div class="row">
+  <div class="col-md-11">
+      <h5 class="header">Orders</h5>
+      <hr>
+      <div class="card card-body">
+        <form method="get">
+          {{myFilter.form}}
+          <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+          <table class="table table-sm">
+            <tr>
+              <th>Customer</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Order</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+            {% for order in finaled_order %}
+            <tr>
+              <td>{{order.name}}</td>
+              <td>{{order.email}}</td>
+              <td>{{order.address}}</td>
+              <td>{{order.order_description}}</td>
+              <td>{{order.total}}</td>
+              <td>{{order.status}}</td>
+              
+              <td><a class = "btn btn-sm btn-info" href="{% url 'update_order' order.id %}">Update</a></td>
+              <td><a class = "btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+          </table>
+        
+      </div>
+    </div>
+</div>
+
+
+ 
+
+
+
+{% endblock content %}

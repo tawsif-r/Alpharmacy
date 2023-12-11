@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100;200&family=Roboto+Mono:ital,wght@0,100;0,300;0,400;1,300&display=swap');
+
+
+html,body{
+    font-family: 'Martian Mono', monospace;
+font-family: 'Roboto Mono', monospace;
+    background-color: black;
+}
+
+.header{
+color: aliceblue;
+
+}
+.card{
+    background-color: rgb(147, 177, 166)
+    
+
+}
+#card{
+    color: rgb(255, 255, 255);
+    background-color: rgb(92, 131, 116);
+}
+#logo{
+    width: 100px;
+    height: auto;
+}
+
+
+#total-orders{
+    background-color: #4cb4c7;
+}
+#orders-delivered{
+    background-color: #7abecc;
+}
+#orders-pending{
+    background-color: #7CD1C0;
+
+}
+
+.btn{   
+    color: black;
+}
+#orderBtn{
+    background-color: #4cb4c7;
+}
+#orderBtn:hover{
+    background-color: #1d7888;
+}
+
+footer{
+    background-color: rgb(35, 45, 63);
+}
+
