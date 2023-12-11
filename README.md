@@ -9,10 +9,15 @@ This repository hosts an Online Pharmacy Management System, equipped with variou
 ### Implemented Features
 - **Registration/Login System:** Allows users to create accounts and securely log in.
   ![Registration UI](register.png)
+  ![login UI](login.png)
 
 - **Medicine Purchase:** Enables users to buy medicines online.
+  ![store UI](store.png)
 - **Medicine Details:** Provides comprehensive details about available medicines.
+  ![medicine UI](medicine.png)
 - **Order Placement:** Allows users to place orders for medicines.
+  ![cart UI](cart.png)
+  ![checkout UI](checkout.png)
 - **Delivery System:** Manages the delivery process for orders.
 - **Customer Details:** Stores and manages customer information.
 - **Medicine Search:** Enables users to search for available medicines.
