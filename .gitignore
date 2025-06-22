@@ -1,0 +1,19 @@
+/env
+/information_broker/postgres_data
+
+# Ignore build artifacts
+*.log
+*.tmp
+*.pid
+*.py[cod]
+
+# Ignore IDE/editor files
+.vscode/
+.idea/
+
+#ignore migrations and pycache
+**/__pycache__/*.pyc
+**/migrations/*.py
+# Ignore Docker-related files
+docker-compose.override.yml
+.env
