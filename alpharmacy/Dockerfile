@@ -6,7 +6,7 @@ WORKDIR /app
 
 
 #Set environment vaiables
-ENV PYTHONBUFFERED 1
+ENV PYTHONBUFFERED=1
 
 
 # copy requirements first
